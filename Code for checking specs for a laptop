@@ -1,0 +1,75 @@
+"""
+parent class
+"""
+
+
+class Laptop:
+    def __int__(self):
+        self.cpu = " Core I7 6th generation "
+        self.gpu = " nvidia rtx 3060 "
+        self.ram = " 16 GB "
+        self.display = " 4K Resolution "
+        self.storage = " 512 SSD "
+        self.battery = " 150W "
+
+#setting the specs ------- call karney kay liye
+    def setSpecifications(self,specs:dict):
+        try :
+
+        self.model=specs["Model"]
+        self.cpu=specs["CPU"]
+        self.gpu=specs["GPU"]
+        self.ram=specs["RAM"]
+        self.display=specs["DISPLAY"]
+        self.storage=specs["STORAGE"]
+        self.battery=specs["BATTERY"]
+
+
+
+ except Exception as e :
+           print(" All attributes are not passed ")
+    exit()
+
+
+    #getting the specs when called
+
+    def getSpecifications(self):
+        print(f"Model:{self.model}")
+        print(f"CPU:{self.cpu}")
+        print(f"GPU:{self.gpu}")
+        print(f"RAM:{self.ram}")
+        print(f"DISPLAY:{self.display}")
+        print(f"STORAGE:{self.storage}")
+        print(f"BATTERY:{self.battery}")
+
+
+
+class gamelapspec(Laptop):
+    def __int__(self,spec:dict):
+        print("Gaming Laptop")
+    #setting the passed specs
+    super().setSpecifications()
+
+    #gaming laptop features extra
+
+    self.refresh_rate = " 144 HZ "
+    self.response_time = " 2ms "
+
+    def getGamespecsi(self):
+        print(f"Response Time:{self.response_time}")
+        print(f"Refresh rate:{self.refresh_rate}")
+
+
+if __name__ == " __main__":
+    gaming_specs = {
+        "cpu": "Core I7 6th generation",
+        "gpu": "nvidia rtx 3060",
+        "ram": "16gb",
+        "display": "4K Resolution",
+        "battery": "150W",
+        "storage": "512 SSD"
+
+    }
+
+gl = gamelapspec(specs=gaming_specs)
+gl.getGamespecsi()
